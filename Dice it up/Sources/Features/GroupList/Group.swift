@@ -6,10 +6,13 @@
 //
 import Foundation
 
-// Un groupe représente un groupe de joueurs d'une campagne.
+// A group represents one group of player the dm is playing with.
 struct Group : Identifiable, Equatable {
-    // Id unique pour créer une liste sans confusion.
+    // Unique id used to avoid confusion while handling lists.
     let id : UUID
-    // Nom du groupe.
+    // The group's name.
     let name : String
+    // The group url's last part
+    // used with : https://rolz.org/api/roomlog?room=
+    let urlPart : String
 }
