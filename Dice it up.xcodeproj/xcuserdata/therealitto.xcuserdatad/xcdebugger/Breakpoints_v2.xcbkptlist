@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "C61D0E5F-6385-487B-A2BC-817A3E317F8B"
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "FE14AC92-E783-47AE-906D-3BE10BC1BFE2"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Dice it up/Sources/Features/GroupDetail/DiceLogClient.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "58"
+            endingLineNumber = "58"
+            landmarkName = "liveValue"
+            landmarkType = "24">
+            <Locations>
+               <Location
+                  uuid = "FE14AC92-E783-47AE-906D-3BE10BC1BFE2 - fbfaf490f3b8594f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "one-time initialization function for testEmptyValue"
+                  moduleName = "Dice it up.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/therealitto/Documents/XCode/Dice_It_Up/Dice%20it%20up/Dice%20it%20up/Sources/Features/GroupDetail/DiceLogClient.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "58"
+                  endingLineNumber = "58">
+               </Location>
+               <Location
+                  uuid = "FE14AC92-E783-47AE-906D-3BE10BC1BFE2 - aa3203d6da5dfd0d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Sendable (Swift.String) async -&gt; Swift.Array&lt;Dice_it_up.DiceLogItem&gt; in variable initialization expression of static Dice_it_up.DiceLogClient.testEmptyValue : Dice_it_up.DiceLogClient"
+                  moduleName = "Dice it up.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/therealitto/Documents/XCode/Dice_It_Up/Dice%20it%20up/Dice%20it%20up/Sources/Features/GroupDetail/DiceLogClient.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "58"
+                  endingLineNumber = "58">
+               </Location>
+               <Location
+                  uuid = "FE14AC92-E783-47AE-906D-3BE10BC1BFE2 - f3baa4f39e3b3cd1"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(1) suspend resume partial function for closure #1 @Sendable (Swift.String) async -&gt; Swift.Array&lt;Dice_it_up.DiceLogItem&gt; in variable initialization expression of static Dice_it_up.DiceLogClient.testEmptyValue : Dice_it_up.DiceLogClient"
+                  moduleName = "Dice it up.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/therealitto/Documents/XCode/Dice_It_Up/Dice%20it%20up/Dice%20it%20up/Sources/Features/GroupDetail/DiceLogClient.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "58"
+                  endingLineNumber = "58">
+               </Location>
+               <Location
+                  uuid = "FE14AC92-E783-47AE-906D-3BE10BC1BFE2 - 7973722fcf74055d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Dice_it_up.DiceLogClient.testEmptyValue.unsafeMutableAddressor : Dice_it_up.DiceLogClient"
+                  moduleName = "Dice it up.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/therealitto/Documents/XCode/Dice_It_Up/Dice%20it%20up/Dice%20it%20up/Sources/Features/GroupDetail/DiceLogClient.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "58"
+                  endingLineNumber = "58">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>

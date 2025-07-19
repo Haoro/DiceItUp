@@ -2,7 +2,7 @@
 //  DiceItUpApp.swift
 //  Dice it up
 //
-//  Created by The Real Itto on 17/07/2025.
+//  Created by Haoro on 17/07/2025.
 //
 
 import SwiftUI
