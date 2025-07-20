@@ -18,21 +18,46 @@ struct GroupDetailView: View {
                     .font(.largeTitle)
                     .padding()
                 Spacer()
-                Button("Charger les jets de dés") {
-                    viewStore.send(.loadDiceLogs)
+                if viewStore.isLoading {
+                    ProgressView("Loading players…")
+                        .padding()
+                } else {
+                    List {
+                        ForEach(viewStore.players) { player in
+                            Button(action: {
+                                // Send the `selectGroup` action with the group's ID
+                                // viewStore.send(.selectGroup(group.id))
+                            }) {
+                                HStack {
+                                    Text(player.name)
+                                    Spacer() // Pushes content to left and right
+                                    
+                                }
+                                .padding() // Inner padding for the button
+                                .background(Color.blue.opacity(0.1)) // Light blue background
+                                .cornerRadius(10) // Rounded corners for softer UI
+                            }
+                        }
+                    }
+                    .navigationTitle("Players")
+                    .toolbar {
+                        ToolbarItem(placement: .navigationBarTrailing) {
+                            Button {
+                                viewStore.send(.loadDiceLogs)
+                            } label: {
+                                Label("Refresh", systemImage: "arrow.clockwise")
+                            }
+                        }
+                    }
+                    .refreshable {
+                        viewStore.send(.loadDiceLogs)
+                    }
                 }
             }
-//            .onAppear {
-//                viewStore.send(.onAppear)
-//            }
-            List(viewStore.diceLogs, id: \.time) { log in
-                VStack(alignment: .leading) {
-                    Text("\(log.from) → \(log.input)")
-                    Text("Résultat : \(log.result)")
-                        .font(.subheadline)
-                        .foregroundColor(.gray)
-                }
+            .onAppear {
+                viewStore.send(.loadDiceLogs)
             }
+            
         }
     }
 }

@@ -25,26 +25,24 @@ struct GroupListView: View {
                     Text("Select a group")
                         .font(.title)
                     
-                    // Loop through all groups in the state
-                    ForEach(viewStore.groups) { group in
-                        
-                        // Each group is clickable
-                        Button(action: {
-                            // Send the `selectGroup` action with the group's ID
-                            viewStore.send(.selectGroup(group.id))
-                        }) {
-                            HStack {
-                                Text(group.name)
-                                Spacer() // Pushes content to left and right
-                                
-                                // Display a checkmark if this group is selected
-                                if viewStore.selectedGroupId == group.id {
-                                    Image(systemName: "checkmark")
+                    List {
+                        // Loop through all groups in the state
+                        ForEach(viewStore.groups) { group in
+                            
+                            // Each group is clickable
+                            Button(action: {
+                                // Send the `selectGroup` action with the group's ID
+                                viewStore.send(.selectGroup(group.id))
+                            }) {
+                                HStack {
+                                    Spacer()
+                                    Text(group.name)
+                                    Spacer()
                                 }
+                                .padding() // Inner padding for the button
+                                .background(Color.blue.opacity(0.1)) // Light blue background
+                                .cornerRadius(10) // Rounded corners for softer UI
                             }
-                            .padding() // Inner padding for the button
-                            .background(Color.blue.opacity(0.1)) // Light blue background
-                            .cornerRadius(10) // Rounded corners for softer UI
                         }
                     }
                     
