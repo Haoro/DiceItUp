@@ -12,14 +12,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		E089B2772E27111900B0E4A0 /* PBXContainerItemProxy */ = {
+		E089B2812E27111900B0E4A0 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = E089B25E2E27111700B0E4A0 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = E089B2652E27111700B0E4A0;
 			remoteInfo = "Dice it up";
 		};
-		E089B2812E27111900B0E4A0 /* PBXContainerItemProxy */ = {
+		E0FA02412E2D8E65003986BF /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = E089B25E2E27111700B0E4A0 /* Project object */;
 			proxyType = 1;
@@ -29,7 +29,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		E089B2662E27111700B0E4A0 /* Dice it up.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Dice it up.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E089B2662E27111700B0E4A0 /* Dice_it_up.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Dice_it_up.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E089B2762E27111900B0E4A0 /* Dice it upTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Dice it upTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E089B2802E27111900B0E4A0 /* Dice it upUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Dice it upUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -85,6 +85,7 @@
 				E089B2A62E2711E900B0E4A0 /* Dice it up */,
 				E089B2792E27111900B0E4A0 /* Dice it upTests */,
 				E089B2832E27111900B0E4A0 /* Dice it upUITests */,
+				E0FA02302E2D8D80003986BF /* Frameworks */,
 				E089B2672E27111700B0E4A0 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -92,11 +93,18 @@
 		E089B2672E27111700B0E4A0 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				E089B2662E27111700B0E4A0 /* Dice it up.app */,
+				E089B2662E27111700B0E4A0 /* Dice_it_up.app */,
 				E089B2762E27111900B0E4A0 /* Dice it upTests.xctest */,
 				E089B2802E27111900B0E4A0 /* Dice it upUITests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		E0FA02302E2D8D80003986BF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -122,7 +130,7 @@
 				E089B2C82E27195900B0E4A0 /* ComposableArchitecture */,
 			);
 			productName = "Dice it up";
-			productReference = E089B2662E27111700B0E4A0 /* Dice it up.app */;
+			productReference = E089B2662E27111700B0E4A0 /* Dice_it_up.app */;
 			productType = "com.apple.product-type.application";
 		};
 		E089B2752E27111900B0E4A0 /* Dice it upTests */ = {
@@ -136,7 +144,8 @@
 			buildRules = (
 			);
 			dependencies = (
-				E089B2782E27111900B0E4A0 /* PBXTargetDependency */,
+				E0FA02422E2D8E65003986BF /* PBXTargetDependency */,
+				E0FA02292E2D1122003986BF /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
 				E089B2792E27111900B0E4A0 /* Dice it upTests */,
@@ -206,6 +215,8 @@
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
 				E089B2C72E27191100B0E4A0 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */,
+				E0FA022A2E2D8D49003986BF /* XCRemoteSwiftPackageReference "swift-dependencies" */,
+				E0FA022B2E2D8D71003986BF /* XCRemoteSwiftPackageReference "swift-case-paths" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = E089B2672E27111700B0E4A0 /* Products */;
@@ -268,15 +279,19 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		E089B2782E27111900B0E4A0 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = E089B2652E27111700B0E4A0 /* Dice it up */;
-			targetProxy = E089B2772E27111900B0E4A0 /* PBXContainerItemProxy */;
-		};
 		E089B2822E27111900B0E4A0 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = E089B2652E27111700B0E4A0 /* Dice it up */;
 			targetProxy = E089B2812E27111900B0E4A0 /* PBXContainerItemProxy */;
+		};
+		E0FA02292E2D1122003986BF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			productRef = E0FA02282E2D1122003986BF /* ComposableArchitecture */;
+		};
+		E0FA02422E2D8E65003986BF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E089B2652E27111700B0E4A0 /* Dice it up */;
+			targetProxy = E0FA02412E2D8E65003986BF /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -286,6 +301,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				BUNDLE_LOADER = "";
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -349,6 +365,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				BUNDLE_LOADER = "";
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -410,6 +427,7 @@
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"Dice it up/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -422,10 +440,11 @@
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "haoro-s-Dev.Dice-it-up";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Dice_it_up;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "";
 			};
 			name = Debug;
 		};
@@ -439,6 +458,8 @@
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"Dice it up/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -451,10 +472,11 @@
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "haoro-s-Dev.Dice-it-up";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Dice_it_up;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "";
 			};
 			name = Release;
 		};
@@ -473,7 +495,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Dice it up.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Dice it up";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Dice_it_up.app/Dice_it_up";
 			};
 			name = Debug;
 		};
@@ -484,6 +506,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
+				ENABLE_TESTABILITY = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
 				MARKETING_VERSION = 1.0;
@@ -492,7 +515,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Dice it up.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Dice it up";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Dice_it_up.app/Dice_it_up\n";
 			};
 			name = Release;
 		};
@@ -578,6 +601,22 @@
 				minimumVersion = 1.20.2;
 			};
 		};
+		E0FA022A2E2D8D49003986BF /* XCRemoteSwiftPackageReference "swift-dependencies" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/pointfreeco/swift-dependencies";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.9.2;
+			};
+		};
+		E0FA022B2E2D8D71003986BF /* XCRemoteSwiftPackageReference "swift-case-paths" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/pointfreeco/swift-case-paths";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.7.1;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -587,6 +626,11 @@
 			productName = ComposableArchitecture;
 		};
 		E089B2CA2E27198400B0E4A0 /* ComposableArchitecture */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E089B2C72E27191100B0E4A0 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
+			productName = ComposableArchitecture;
+		};
+		E0FA02282E2D1122003986BF /* ComposableArchitecture */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = E089B2C72E27191100B0E4A0 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
 			productName = ComposableArchitecture;
