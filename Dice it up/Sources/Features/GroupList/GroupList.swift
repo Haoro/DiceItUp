@@ -28,6 +28,8 @@ struct GroupList: Reducer {
     enum Action: Equatable {
         /// Selection of an existing group.
         case selectGroup(UUID)
+        /// Delete selected groupe.
+        case deleteGroup(IndexSet)
         /// Open the group creation manager.
         case openGroupCreation
         /// Internal actions related to the group manager (modal).
@@ -49,7 +51,12 @@ struct GroupList: Reducer {
                                     state.destination = GroupDetail.State(group: group)
                                 }
                 return .none
-                
+            // When a groupe is swipped from right to left.
+            case let .deleteGroup(indexSet):
+                for index in indexSet {
+                    state.groups.remove(at: index)
+                }
+                return .none
             // When "Add a group" is tapped, initialize the modal state.
             case .openGroupCreation:
                 state.groupManager = GroupManager.State()

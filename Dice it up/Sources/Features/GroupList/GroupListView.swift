@@ -24,6 +24,16 @@ struct GroupListView: View {
                     // Main title of the view
                     Text("Select a group")
                         .font(.title)
+                        .toolbar {
+                            ToolbarItem(placement: .navigationBarTrailing) {
+                                Button(action: {
+                                    // Action to show sheet for adding a group
+                                    viewStore.send(.openGroupCreation)
+                                }) {
+                                    Image(systemName: "plus")
+                                }
+                            }
+                        }
                     
                     List {
                         // Loop through all groups in the state
@@ -35,23 +45,33 @@ struct GroupListView: View {
                                 viewStore.send(.selectGroup(group.id))
                             }) {
                                 HStack {
-                                    Spacer()
-                                    Text(group.name)
-                                    Spacer()
-                                }
-                                .padding() // Inner padding for the button
-                                .background(Color.blue.opacity(0.1)) // Light blue background
-                                .cornerRadius(10) // Rounded corners for softer UI
+                                        VStack(alignment: .leading) {
+                                            Text(group.name)
+                                                .font(.headline)
+                                                .lineLimit(1)
+                                            Text(group.urlPart)
+                                                .font(.subheadline)
+                                                .foregroundColor(.gray)
+                                                .lineLimit(1)
+                                        }
+
+                                        Spacer()
+                                    }
+                                    .padding()
+                                    .background(Color(.systemGray6)) // Fond clair distinct
+                                    .cornerRadius(12)
+                                    .shadow(color: Color.black.opacity(0.05), radius: 1, x: 0, y: 1)
+                                    .padding(.horizontal)
+                                    .padding(.vertical, 4) // Espacement entre les cellules
                             }
                         }
-                    }
+                        .onDelete { indexSet in
+                            viewStore.send(.deleteGroup(indexSet))
+                        }
+                        .listRowSeparator(.hidden)
+                    }.scrollContentBackground(.hidden)
                     
-                    // Button to display the GroupManager sheet
-                    Button("Add a group") {
-                        // Triggers a simple action to open the sheet
-                        viewStore.send(.openGroupCreation)
-                    }
-                    .padding()
+                
                 }
                 Spacer()
             }
