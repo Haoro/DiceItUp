@@ -1,53 +1,93 @@
+
 import ComposableArchitecture
 import Foundation
+
 
 struct GroupDetail: Reducer {
     
     struct State: Equatable {
+        /// The current Group from which the details are displayed.
         let group: Group
+        /// All the player's of the selected group.
         var players: [Player] = []
+        /// All the dice logs of the selected group.
         var diceLogs: [DiceLogItem] = []
+        /// Indicate if the data are actually getting fetched.
         var isLoading: Bool = false
+        
+        /// ID of the currently selected player.
+        var selectedPlayerId: UUID?
+        /// Optional state for the player detail page.
+        @PresentationState var destination: PlayerDetail.State? = nil
     }
 
     enum Action: Equatable {
-        //case onAppear
         case loadDiceLogs
+        case loadMockPlayers
         case diceLogsResponse(TaskResult<[DiceLogItem]>)
         case diceLogsParsed([Player])
+        case selectPlayer(UUID)
+        /// Navigate through the application.
+        case destination(PresentationAction<PlayerDetail.Action>)
     }
 
     @Dependency(\.diceLogClient) var diceLogClient
 
-    func reduce(into state: inout State, action: Action) -> Effect<Action> {
-        switch action {
-        case .loadDiceLogs:
-            state.isLoading = true
-            return .run { [group = state.group] send in
-                await send(.diceLogsResponse(
-                    TaskResult {
-                        try await diceLogClient.fetchLogs(group.urlPart)
-                    }
-                ))
+    var body: some ReducerOf<Self> {
+        Reduce { state, action in
+            switch action {
+            case .loadDiceLogs:
+                state.isLoading = true
+                return .run { [group = state.group] send in
+                    await send(.diceLogsResponse(
+                        TaskResult {
+                            try await diceLogClient.fetchLogs(group.urlPart)
+                        }
+                    ))
+                }
+                
+            case .loadMockPlayers:
+                state.players = [
+                    Player(name: "Haoro", rolls: []),
+                    Player(name: "Leykal", rolls: []),
+                    Player(name: "Sanson", rolls: [])
+                ]
+                return .none
+                
+            case let .diceLogsResponse(.success(diceLogs)):
+                state.isLoading = false
+                state.diceLogs = diceLogs
+                // Transform raw logs into a list of Player.
+                let players = Self.mapLogsToPlayers(diceLogs)
+                return .send(.diceLogsParsed(players))
+                
+            case let .diceLogsResponse(.failure(error)):
+                state.isLoading = false
+                // TODO: Handle errors.
+                print("Error fetching dice logs: \(error)")
+                return .none
+                
+            case let .diceLogsParsed(players):
+                state.players = players
+                return .none
+                
+                
+                // When a playert is selected, navigate to the player's details.
+            case let .selectPlayer(id):
+                state.selectedPlayerId = id
+                // Init destination when a player is selected.
+                if let player = state.players.first(where: { $0.id == id }) {
+                    state.destination = PlayerDetail.State(player: player)
+                }
+                return .none
+                
+            case .destination:
+                return .none
             }
-
-        case let .diceLogsResponse(.success(diceLogs)):
-            state.isLoading = false
-            state.diceLogs = diceLogs
-
-            // Transform raw logs into a list of Player.
-            let players = Self.mapLogsToPlayers(diceLogs)
-            return .send(.diceLogsParsed(players))
-
-        case let .diceLogsResponse(.failure(error)):
-            state.isLoading = false
-            // TODO: Handle errors.
-            print("Error fetching dice logs: \(error)")
-            return .none
-            
-        case let .diceLogsParsed(players):
-            state.players = players
-            return .none
+        }
+        // Handling navigation.
+        .ifLet(\.$destination, action: /Action.destination) {
+            PlayerDetail()
         }
     }
     

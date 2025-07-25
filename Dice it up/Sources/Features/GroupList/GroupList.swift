@@ -48,8 +48,8 @@ struct GroupList: Reducer {
                 state.selectedGroupId = id
                 // Init destination when a group is selected.
                 if let group = state.groups.first(where: { $0.id == id }) {
-                                    state.destination = GroupDetail.State(group: group)
-                                }
+                    state.destination = GroupDetail.State(group: group)
+                }
                 return .none
             // When a groupe is swipped from right to left.
             case let .deleteGroup(indexSet):
@@ -88,7 +88,7 @@ struct GroupList: Reducer {
                 state.destination = nil
                 return .none
             case .destination:
-                            return .none
+                return .none
             }
             
         }

@@ -47,20 +47,16 @@ struct GroupListView: View {
                                 HStack {
                                         VStack(alignment: .leading) {
                                             Text(group.name)
-                                                .font(.headline)
+                                                .font(.system(size: 25, weight: .bold))
                                                 .lineLimit(1)
                                             Text(group.urlPart)
-                                                .font(.subheadline)
-                                                .foregroundColor(.gray)
+                                                .font(.system(size: 20))
                                                 .lineLimit(1)
+                                                .foregroundColor(.gray)
                                         }
-
                                         Spacer()
                                     }
                                     .padding()
-                                    .background(Color(.systemGray6)) // Fond clair distinct
-                                    .cornerRadius(12)
-                                    .shadow(color: Color.black.opacity(0.05), radius: 1, x: 0, y: 1)
                                     .padding(.horizontal)
                                     .padding(.vertical, 4) // Espacement entre les cellules
                             }
@@ -69,7 +65,11 @@ struct GroupListView: View {
                             viewStore.send(.deleteGroup(indexSet))
                         }
                         .listRowSeparator(.hidden)
-                    }.scrollContentBackground(.hidden)
+                        .background(Color(.systemGray6)) // Fond clair distinct
+                        .cornerRadius(12)
+                        .shadow(color: Color.black.opacity(0.05), radius: 1, x: 0, y: 1)
+                    }
+                    .scrollContentBackground(.hidden)
                     
                 
                 }
