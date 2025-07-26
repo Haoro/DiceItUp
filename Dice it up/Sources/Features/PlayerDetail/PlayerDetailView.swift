@@ -29,22 +29,57 @@ public struct PlayerDetailView: View {
     public var body: some View {
         List {
             ForEach(sessions.sorted(by: { $0.date > $1.date })) { session in
+                // Displayed cell for each Session.
                 VStack(alignment: .leading, spacing: 8) {
                     // Date de session
                     Text(session.date.formatted(date: .abbreviated, time: .omitted))
-                        .font(.headline)
+                        .font(.system(size: 25,
+                                      weight: .bold))
                         .foregroundColor(.primary)
-                    
-                    HStack {
-                        // Nombre de 100
-                        Label("\(session.count100s) × 100", systemImage: "star.fill")
-                            .foregroundColor(.green)
-                        Spacer()
-                        // Nombre de 1
-                        Label("\(session.count1s) × 1", systemImage: "exclamationmark.triangle.fill")
-                            .foregroundColor(.red)
+                    VStack {
+                        // Critical Succes Row
+                        HStack {
+                            Spacer()
+                            // Number of Omega Crit
+                            HStack(spacing: 4) {
+                                Text("⚔")
+                                Text("5")
+                            }
+                            Spacer()
+                            Spacer()
+                            Spacer()
+                            // Number of Crit
+                            HStack(spacing: 4) {
+                                Image(systemName: "checkmark.circle.fill")
+                                    .foregroundStyle(.green)
+                                Text("5")
+                            }
+                            Spacer()
+                        }
+                        .font(.system(size: 30))
+                        
+                        HStack {
+                            Spacer()
+                            // Number of Omega Crit
+                            HStack(spacing: 4) {
+                                Text("💥")
+                                Text("5")
+                            }
+                                
+                            Spacer()
+                            Spacer()
+                            Spacer()
+                            // Number of Crit
+                            HStack(spacing: 4) {
+                                Image(systemName: "xmark.circle.fill")
+                                    .foregroundStyle(.red)
+                                Text("5")
+                            }
+                            Spacer()
+                        }
+                        .font(.system(size: 30))
                     }
-                    .font(.subheadline)
+                    
                 }
                 .padding(.vertical, 8)
             }
