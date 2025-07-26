@@ -62,8 +62,8 @@ struct GroupDetailView: View {
                 }
             }
             .onAppear {
-                // viewStore.send(.loadDiceLogs)
-                viewStore.send(.loadMockPlayers)
+                viewStore.send(.loadDiceLogs)
+                //viewStore.send(.loadMockPlayers)
             }
         }
         .navigationDestination(

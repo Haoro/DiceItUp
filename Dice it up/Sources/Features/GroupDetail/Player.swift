@@ -13,15 +13,6 @@ struct Player: Equatable, Identifiable {
     var rolls: [DiceRoll]
 }
 
-struct DiceRoll: Equatable, Identifiable {
-    let id: UUID = UUID()
-    let input: String
-    let result: String
-    let comment: String?
-    let tags: [String]
-    let timestamp: Int
-}
-
 /// Roll à gérer :
 /// - 1
 /// - 7 (Jackpot)
